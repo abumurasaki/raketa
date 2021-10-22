@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import "@/assets/scss/modules/card.scss";
 export default {
   props: {
     type: {

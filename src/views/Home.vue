@@ -8,7 +8,7 @@
           <!-- rows -->
           <div class="home-cards__row">
             <CardDoubleCol />
-            <Card
+            <CardGrid
               :type="'short'"
               :title="'Среднее время назначение'"
               :content="'5 мин'"
@@ -16,13 +16,13 @@
           </div>
 
           <div class="home-cards__row">
-            <Card
+            <CardGrid
               :is-chart="true"
               :title="'Доставок'"
               :content="'1 234'"
               :percents="'-26%'"
             />
-            <Card
+            <CardGrid
               :type="'short'"
               :title="'Среднее время до точки отправки'"
               :content="'24 мин'"
@@ -30,13 +30,13 @@
           </div>
 
           <div class="home-cards__row">
-            <Card
+            <CardGrid
               :is-chart="true"
               :title="'Отказов'"
               :content="'456'"
               :percents="'+6%'"
             />
-            <Card
+            <CardGrid
               :type="'short'"
               :title="'Среднее количество работы'"
               :content="'36 часов'"
@@ -44,29 +44,27 @@
           </div>
 
           <div class="home-cards__row">
-            <Card
+            <CardGrid
               :is-chart="true"
               :title="'UTR'"
               :content="'1.6'"
               :percents="'+13%'"
             />
-            <Card
+            <CardGrid
               :type="'short'"
               :title="'Расстояние до точки доставки'"
               :content="'3.6 км'"
             />
           </div>
 
-          <Card :type="'long'" :title="'Время доставки '" :content="'32 мин'" />
+          <CardGrid
+            :type="'long'"
+            :title="'Время доставки '"
+            :content="'32 мин'"
+          />
         </div>
         <!-- right part -->
-        <div class="home-listing card">
-          <div class="home-listing__header">
-            <h1 class="home-listing__title">Курьеры</h1>
-            <FiltrationBrand :fiter-by="filterBy" />
-          </div>
-          <TheListing />
-        </div>
+        <TheListing />
       </div>
     </div>
   </div>
@@ -74,24 +72,18 @@
 
 <script>
 import TheListing from "@/components/base/TheListing.vue";
-import Card from "@/components/card/Card.vue";
+import CardGrid from "@/components/card/CardGrid.vue";
 import CardDoubleCol from "@/components/card/CardDoubleCol.vue";
 import FiltrationPeriod from "@/components/filtration/FiltrationPeriod.vue";
-import FiltrationBrand from "@/components/filtration/FiltrationBrand.vue";
 
+import "@/assets/scss/modules/card.scss";
 export default {
   name: "Home",
   components: {
     FiltrationPeriod,
-    Card,
+    CardGrid,
     CardDoubleCol,
     TheListing,
-    FiltrationBrand,
-  },
-  data() {
-    return {
-      filterBy: "",
-    };
   },
 };
 </script>
@@ -118,19 +110,7 @@ export default {
       }
     }
   }
-  &-listing {
-    padding-bottom: 10px;
-    width: 58%;
-    &__header {
-      position: relative;
-    }
-    &__title {
-      display: inline-block;
-      font-size: 24px;
-      line-height: 36px;
-      padding-bottom: 37px;
-    }
-  }
+
   @media screen and (max-width: 1050px) {
     &-cards {
       flex-direction: column;
@@ -139,9 +119,6 @@ export default {
         width: 100%;
         margin-bottom: 10px;
       }
-    }
-    &-listing {
-      width: 100%;
     }
   }
 }

@@ -12,7 +12,10 @@
 </template>
 
 <script>
-export default {};
+import "@/assets/scss/modules/card.scss";
+export default {
+  name: "CardDoubleCol",
+};
 </script>
 
 <style lang="scss" scoped>
