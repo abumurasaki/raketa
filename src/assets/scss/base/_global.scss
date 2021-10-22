@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gilroy", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2f3747;
+  background-color: #fff;
+
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  line-height: 18px;
+}
+
+.scrollbar {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #dedede;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: #c0c0c0;
+  }
+}
