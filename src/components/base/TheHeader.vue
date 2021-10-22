@@ -49,6 +49,17 @@ export default {};
     }
     &--active {
       color: #c90b0b;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        transform: translateY(26px);
+        border-radius: 6px;
+        border-bottom: 3px solid #c90b0b;
+      }
     }
   }
 }

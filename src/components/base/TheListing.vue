@@ -18,7 +18,7 @@
       <li class="listing-nav__item listing__col-id">UTR</li>
     </ul>
 
-    <div class="listing-body__wrap">
+    <div v-if="!isLoading" class="listing-body__wrap">
       <div v-for="(item, id) in filteredList" :key="id">
         <div
           v-for="(model, i) in item.models"
@@ -34,24 +34,31 @@
         </div>
       </div>
     </div>
+    <div v-else class="loader">
+      <TheLoader />
+    </div>
   </div>
 </template>
 
 <script>
 import FiltrationBrand from "@/components/filtration/FiltrationBrand.vue";
+import TheLoader from "@/components/base/TheLoader.vue";
 export default {
   components: {
     FiltrationBrand,
+    TheLoader,
   },
   data() {
     return {
       list: null,
       filterBy: null,
       brands: [],
+      isLoading: true,
     };
   },
-  created() {
-    fetch(
+
+  async mounted() {
+    await fetch(
       "https://raw.githubusercontent.com/matthlavacka/car-list/master/car-list.json"
     )
       .then((res) => res.json())
@@ -60,6 +67,7 @@ export default {
         data.map((el) => {
           this.brands.push(el.brand);
         });
+        this.isLoading = false;
       });
   },
   computed: {
@@ -99,6 +107,7 @@ export default {
 
     &__item {
       position: relative;
+      font-weight: 500;
       line-height: 18px;
       cursor: pointer;
 
@@ -140,5 +149,11 @@ export default {
   @media screen and (max-width: 1050px) {
     width: 100%;
   }
+}
+.loader {
+  display: flex;
+  height: 500px;
+  justify-content: center;
+  align-items: center;
 }
 </style>
