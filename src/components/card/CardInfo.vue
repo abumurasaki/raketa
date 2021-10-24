@@ -39,6 +39,7 @@
 <script>
 import "@/assets/scss/modules/card.scss";
 export default {
+  name: "CardInfo",
   props: {
     type: {
       type: String,
@@ -184,7 +185,7 @@ export default {
     &__img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
   @media screen and (max-width: 1050px) {

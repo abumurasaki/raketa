@@ -1,5 +1,5 @@
 <template>
-  <div class="filtration">
+  <div v-click-outside="closeDropdown" class="filtration">
     <button class="filtration__btn" @click="showDrowdown = !showDrowdown">
       <span
         class="filtration__btn-arrow"
@@ -38,7 +38,7 @@ export default {
   data() {
     return {
       showDrowdown: false,
-      selectedId: "",
+      selectedId: null,
       selectedBrand: this.filterBy,
     };
   },
@@ -49,10 +49,13 @@ export default {
         this.selectedBrand = item;
         this.$emit("select", item);
       } else {
-        this.selectedId = "";
+        this.selectedId = null;
         this.$emit("select", "");
         this.selectedBrand = this.filterBy;
       }
+      this.showDrowdown = false;
+    },
+    closeDropdown() {
       this.showDrowdown = false;
     },
   },

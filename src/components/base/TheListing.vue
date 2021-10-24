@@ -9,13 +9,13 @@
       />
     </div>
 
-    <ul class="listing-nav">
-      <li class="listing-nav__item listing__col-id">ID</li>
-      <li class="listing-nav__item listing__col-brand">БРЕНД</li>
-      <li class="listing-nav__item listing__col-model">МОДЕЛЬ</li>
-      <li class="listing-nav__item listing__col-model">ДОСТАВОК</li>
-      <li class="listing-nav__item listing__col-brand">ОТКАЗОВ</li>
-      <li class="listing-nav__item listing__col-id">UTR</li>
+    <ul class="listing-section">
+      <li class="listing-section__item listing__col-id">ID</li>
+      <li class="listing-section__item listing__col-brand">БРЕНД</li>
+      <li class="listing-section__item listing__col-model">МОДЕЛЬ</li>
+      <li class="listing-section__item listing__col-model">ДОСТАВОК</li>
+      <li class="listing-section__item listing__col-brand">ОТКАЗОВ</li>
+      <li class="listing-section__item listing__col-id">UTR</li>
     </ul>
 
     <div v-if="!isLoading" class="listing-body__wrap">
@@ -79,7 +79,6 @@ export default {
   },
   methods: {
     selectBrand(item) {
-      console.log(item);
       this.filterBy = item;
     },
   },
@@ -99,7 +98,7 @@ export default {
     line-height: 36px;
     padding-bottom: 37px;
   }
-  &-nav {
+  &-section {
     display: flex;
     padding-bottom: 16px;
     color: #9ea6b4;
@@ -131,7 +130,7 @@ export default {
 
     &__wrap {
       max-height: 505px;
-      overflow-y: scroll;
+      overflow-y: auto;
     }
   }
 

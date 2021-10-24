@@ -8,7 +8,7 @@
           <!-- rows -->
           <div class="home-cards__row">
             <CardDoubleCol />
-            <CardGrid
+            <CardInfo
               :type="'short'"
               :title="'Среднее время назначение'"
               :content="'5 мин'"
@@ -16,13 +16,13 @@
           </div>
 
           <div class="home-cards__row">
-            <CardGrid
+            <CardInfo
               :is-chart="true"
               :title="'Доставок'"
               :content="'1 234'"
               :percents="'-26%'"
             />
-            <CardGrid
+            <CardInfo
               :type="'short'"
               :title="'Среднее время до точки отправки'"
               :content="'24 мин'"
@@ -30,13 +30,13 @@
           </div>
 
           <div class="home-cards__row">
-            <CardGrid
+            <CardInfo
               :is-chart="true"
               :title="'Отказов'"
               :content="'456'"
               :percents="'+6%'"
             />
-            <CardGrid
+            <CardInfo
               :type="'short'"
               :title="'Среднее количество работы'"
               :content="'36 часов'"
@@ -44,20 +44,20 @@
           </div>
 
           <div class="home-cards__row">
-            <CardGrid
+            <CardInfo
               :is-chart="true"
               :title="'UTR'"
               :content="'1.6'"
               :percents="'+13%'"
             />
-            <CardGrid
+            <CardInfo
               :type="'short'"
               :title="'Расстояние до точки доставки'"
               :content="'3.6 км'"
             />
           </div>
 
-          <CardGrid
+          <CardInfo
             :type="'long'"
             :title="'Время доставки '"
             :content="'32 мин'"
@@ -72,7 +72,7 @@
 
 <script>
 import TheListing from "@/components/base/TheListing.vue";
-import CardGrid from "@/components/card/CardGrid.vue";
+import CardInfo from "@/components/card/CardInfo.vue";
 import CardDoubleCol from "@/components/card/CardDoubleCol.vue";
 import FiltrationPeriod from "@/components/filtration/FiltrationPeriod.vue";
 
@@ -81,7 +81,7 @@ export default {
   name: "Home",
   components: {
     FiltrationPeriod,
-    CardGrid,
+    CardInfo,
     CardDoubleCol,
     TheListing,
   },
@@ -98,6 +98,7 @@ export default {
   &-cards {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 15px;
     &__group {
       width: calc(42% - 10px);
     }

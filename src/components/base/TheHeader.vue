@@ -15,12 +15,19 @@
           <li class="header__item pointer">Заказы</li>
         </ul>
       </nav>
+      <div class="header__burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "TheHeader",
+};
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +49,35 @@ export default {};
     align-items: center;
     justify-content: center;
   }
+
+  &__burger {
+    display: none;
+    position: relative;
+    margin-left: auto;
+    width: 35px;
+    height: 70px;
+    cursor: pointer;
+    & span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: #c90b0b;
+      border-radius: 15px;
+    }
+
+    & span:nth-child(1) {
+      top: calc(50% - 14px);
+    }
+
+    & span:nth-child(2) {
+      top: calc(50% - 4px);
+    }
+
+    & span:nth-child(3) {
+      top: calc(50% + 6px);
+    }
+  }
   &__item {
     display: block;
     &:not(:first-child) {
@@ -62,11 +98,13 @@ export default {};
       }
     }
   }
-}
-.flex {
-  display: flex;
-}
-.relative {
-  position: relative;
+  @media screen and (max-width: 950px) {
+    &__list {
+      display: none;
+    }
+    &__burger {
+      display: block;
+    }
+  }
 }
 </style>
